@@ -1,0 +1,41 @@
+﻿@model List<GapWise.Models.DiagnosticResult>
+
+@{
+    ViewData["Title"] = "Diagnostic Results";
+}
+
+<div class="card p-5 bg-white">
+
+    <h2 class="text-center mb-4">Your Diagnostic Report</h2>
+
+    @foreach (var result in Model)
+    {
+        <div class="mb-4">
+            <h5>@result.ConceptName</h5>
+
+            <div class="progress mb-2" style="height: 25px;">
+                <div class="progress-bar
+                        @(result.Percentage >= 80 ? "bg-success" :
+                                           result.Percentage >= 50 ? "bg-warning" :
+                                           "bg-danger")"
+                                                       role="progressbar"
+                                                       style="width:@result.Percentage%">
+                                                      @result.Percentage.ToString("0")%
+                                                  </div>
+                                              </div>
+
+            <strong>Strength Level:</strong>
+            <span class="fw-bold
+                    @(result.StrengthLevel == "Strong" ? "text-success" :
+                                    result.StrengthLevel == "Moderate" ? "text-warning" :
+                                    "text-danger")">
+            @result.StrengthLevel
+        </span>
+    </div>
+        }
+
+    <a asp-action="Welcome" class="btn btn-dark mt-4">
+        Take Another Test
+    </a>
+
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<GapWise.Models.Grade>
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="card p-5 bg-white text-center">
+
+    <h1 class="mb-4">Welcome to GapWise</h1>
+
+    <form asp-action="Start" method="post">
+
+        <div class="mb-4">
+            <label class="form-label fw-bold">Select Grade</label>
+            <select name="gradeId" class="form-select" required>
+                <option value="">-- Choose Grade --</option>
+
+                @foreach (var grade in Model)
+                {
+                    <option value="@grade.Id">@grade.Name</option>
+                }
+
+            </select>
+        </div>
+
+        <button class="btn btn-success btn-lg px-5">
+            Start Test
+        </button>
+
+    </form>
+
+</div>

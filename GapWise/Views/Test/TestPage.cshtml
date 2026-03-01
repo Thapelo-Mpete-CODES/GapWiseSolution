@@ -1,0 +1,46 @@
+﻿@model List<GapWise.Models.Question>
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<div class="card p-4 bg-white">
+
+    <h3 class="mb-4 text-center">Diagnostic Test</h3>
+
+    <form asp-action="Submit" method="post">
+        <input type="hidden" name="studentTestId" value="@TempData["StudentTestId"]" />
+
+        @foreach (var question in Model)
+        {
+            <div class="mb-4">
+                <h5>@question.Text</h5>
+
+                <div class="form-check">
+                    <input type="radio" name="answers[@question.Id]" value="A" required />
+                    <label>@question.OptionA</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" name="answers[@question.Id]" value="B" />
+                    <label>@question.OptionB</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" name="answers[@question.Id]" value="C" />
+                    <label>@question.OptionC</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" name="answers[@question.Id]" value="D" />
+                    <label>@question.OptionD</label>
+                </div>
+
+                <hr />
+            </div>
+        }
+
+        <button class="btn btn-primary w-100 btn-lg">Submit Test</button>
+
+    </form>
+</div>
