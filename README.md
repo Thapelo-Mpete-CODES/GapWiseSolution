@@ -1,6 +1,9 @@
 GapWise (Educational Diagnostic Platform)
 GapWise is a learning evaluation platform that lets students take diagnostic tests, tracks performance per topic, provides feedback, and allows teachers to manage questions and grades.
 
+<img width="1223" height="591" alt="Gap wise" src="https://github.com/user-attachments/assets/e13ac59d-d5b4-4d0a-8721-39337f5136c8" />
+
+
 1.Features
 
 *Take multiple-choice diagnostic tests
